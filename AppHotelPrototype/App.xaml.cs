@@ -1,8 +1,21 @@
 ﻿
+using AppHotelPrototype.Models;
+
 namespace AppHotelPrototype
 {
     public partial class App : Application
     {
+
+        public List<Room> rooms_list = new List<Room>
+        {
+            new Room()
+            {
+                Description = "Suíte de Luxo",
+                PriceAdult = 100.00,
+                PriceChild = 50.00
+            }
+        };
+
         public App()
         {
             InitializeComponent();
