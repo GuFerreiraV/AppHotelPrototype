@@ -7,7 +7,7 @@ namespace AppHotelPrototype
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Views.HostingContracting());
         }
 
 
