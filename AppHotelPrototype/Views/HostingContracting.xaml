@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppHotelPrototype.Views.HostingContracting"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource Tertiary}"
+             BackgroundColor="{StaticResource Gray900}"
              Title="HostingContracting">
 
 
@@ -13,17 +13,17 @@
             Text="Cálculo de Diária"
             FontFamily="MichromaRegular"
             FontSize="35"
-            TextColor="{StaticResource OffBlack}"
+            TextColor="{StaticResource PrimaryDark}"
             />
 
         <!-- Estudar esse trecho de código !-->
-            <Frame Padding="10" BackgroundColor="White">
+        <Frame Padding="10" BackgroundColor="{StaticResource PrimaryDark}">
             <VerticalStackLayout>
                 <Grid RowDefinitions="Auto, Auto"
                 ColumnDefinitions="*, *, 2*">
 
                     <Label Grid.Row="0" Grid.Column="0"
-                   TextColor="Black"
+                   TextColor="White"
                    Text="Adultos: "
                    VerticalOptions="Center"
                    HorizontalOptions="Start" />
@@ -45,7 +45,7 @@
                      HorizontalOptions="End" />
 
                     <Label Grid.Row="1" Grid.Column="0"
-                   TextColor="Black"
+                   TextColor="White"
                    Text="Crianças: "
                    VerticalOptions="Center"
                    HorizontalOptions="Start" />
@@ -68,20 +68,29 @@
                 </Grid>
 
                 <Label Text="Escolha sua Suíte" 
-                       TextColor="Black"/>
+                       TextColor="White"
+                       TextTransform="Uppercase"
+                       BackgroundColor="{StaticResource PrimaryDark}"
+                       />
                 <Picker x:Name="pck_quarto"
                         Title="Selecione sua Acomodação"
                         ItemDisplayBinding="{Binding Description}"
-                        TextColor="Black"
+                        TextColor="White"
                         />
 
                 <Frame Padding="10"
-                       Margin="10">
-                    <VerticalStackLayout>
+                       Margin="10"
+                       BackgroundColor="{StaticResource Gray900}"
+                       >
+                    <VerticalStackLayout 
+                        >
                         
-                        <Label Text="Período da Estadia"/>
+                        <Label Text="Período da Estadia"
+                               TextTransform="Uppercase"
+                               
+                               />
                         
-                        <HorizontalStackLayout>
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
                             <Label Text="Check-in: "/>
                             <DatePicker x:Name="dtpck_checkin"
                                         DateSelected="dtpck_checkin_DateSelected"
@@ -89,7 +98,7 @@
                                         />
                         </HorizontalStackLayout>
 
-                        <HorizontalStackLayout>
+                        <HorizontalStackLayout  HorizontalOptions="CenterAndExpand">
                             <Label Text="Check-out: "/>
                             <DatePicker x:Name="dtpck_checkout"
                                         Format="dd/MM/yyyy"
@@ -102,7 +111,10 @@
                 <Button 
                     Text="Avançar" 
                     HorizontalOptions="Center"
-                    Clicked="Button_Clicked"/>
+                    Clicked="Button_Clicked"
+                    TextColor="White" 
+                    BackgroundColor="{StaticResource Gray900}"
+                    />
             </VerticalStackLayout>
         </Frame>
     </VerticalStackLayout>
