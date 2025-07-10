@@ -1,3 +1,5 @@
+using AppHotelPrototype.Models;
+
 namespace AppHotelPrototype.Views;
 
 public partial class HostingContracting : ContentPage
@@ -20,17 +22,34 @@ public partial class HostingContracting : ContentPage
 
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private async void Button_Clicked(object sender, EventArgs e)
     {
 		try
 		{
+            // instanciando as propriedades do objeto Accommodation (model)
+            Accommodation ac = new Accommodation 
+			{
+				
+				SelectedRoom = (Room)pck_quarto.SelectedItem,
+				QtdeAdults = Convert.ToInt32(stp_adultos.Value),
+                QtdeChildrens = Convert.ToInt32(stp_criancas.Value),
+				CheckinDate = dtpck_checkin.Date,
+				CheckoutDate = dtpck_checkout.Date
+
+            };
+
             // pula para próxima página
-            Navigation.PushAsync(new HostingContracted());
+            await Navigation.PushAsync(new HostingContracted() 
+			{
+			
+				BindingContext = ac // Passando a model preenchida para a próxima página
+
+            });
 
 		}
 		catch (Exception ex) 
 		{
-			DisplayAlert("Erro", ex.Message, "Ok");
+			await DisplayAlert("Erro", ex.Message, "Ok");
 		
 		}
     }
